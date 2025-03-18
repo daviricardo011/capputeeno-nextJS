@@ -1,95 +1,130 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+import CategoryMenu from "@/components/CategoriesMenu";
+import { GridProducts } from "@/components/GridProducts";
+import Pagination from "@/components/Pagination";
+import ProductCard from "@/components/ProductCard";
 
-export default function Home() {
+export interface ICategory {
+  id: number;
+  name: string;
+  value: string;
+}
+export interface IProduct {
+  src: string;
+  name: string;
+  price: number;
+  category: string;
+  createdAt: string;
+  quantitySold: number;
+}
+
+const categories: ICategory[] = [
+  { id: 1, name: "Todos os produtos", value: "" },
+  { id: 2, name: "Camisetas", value: "camiseta" },
+  { id: 3, name: "Canecas", value: "caneca" },
+];
+
+const products: IProduct[] = [
+  {
+    src: "https://down-br.img.susercontent.com/file/br-11134207-7r98o-lzszylrwm6o142",
+    name: "T Shirt Feminina Camiseta",
+    price: 24.99,
+    category: "camiseta",
+    createdAt: "2025-02-21T19:08:40.806Z",
+    quantitySold: 1,
+  },
+  {
+    src: "https://down-br.img.susercontent.com/file/883a0156e011ad808f210267b1dad4e1",
+    name: "Camiseta T-shirt Spy X Family",
+    price: 49.99,
+    category: "caneca",
+    createdAt: "2025-03-10T19:08:40.806Z",
+    quantitySold: 3,
+  },
+  {
+    src: "https://down-br.img.susercontent.com/file/br-11134207-7r98o-lkmu2aapqcib55",
+    name: "T Shirt Feminina Docinho",
+    price: 23.99,
+    category: "camiseta",
+    createdAt: "2025-03-15T19:08:40.806Z",
+    quantitySold: 2,
+  },
+];
+
+const itemsPerPage = 4;
+
+interface HomeProps {
+  searchParams?: { [key: string]: string | string[] | undefined };
+}
+
+export default async function Home({ searchParams }: HomeProps) {
+  const resolvedSearchParams = await searchParams;
+  const actualPage = Number(resolvedSearchParams?.page || 1);
+  const actualCategory = resolvedSearchParams?.category || undefined;
+  const sortBy = resolvedSearchParams?.sortBy || undefined;
+  const search = resolvedSearchParams?.search || "";
+
+  const filterByCategory = (prods: IProduct[]): IProduct[] => {
+    if (actualCategory && actualCategory !== "Todos os produtos")
+      return prods.filter((prod) => prod.category === actualCategory);
+    return prods;
+  };
+
+  const filterByPage = (prods: IProduct[]): IProduct[] => {
+    const startIndex = (actualPage - 1) * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
+    return prods.slice(startIndex, endIndex);
+  };
+
+  const sortProducts = (prods: IProduct[]): IProduct[] => {
+    const sortedProducts = [...prods];
+
+    switch (sortBy) {
+      case "news":
+        return sortedProducts.sort(
+          (a, b) =>
+            new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+        );
+      case "highestPrice":
+        return sortedProducts.sort((a, b) => b.price - a.price);
+      case "lowestPrice":
+        return sortedProducts.sort((a, b) => a.price - b.price);
+      case "bestSellers":
+        return sortedProducts.sort((a, b) => b.quantitySold - a.quantitySold);
+      default:
+        return sortedProducts;
+    }
+  };
+
+  const searchProduct = (): IProduct[] => {
+    return products.filter((prod) => prod.name.includes(search as string));
+  };
+
+  const filterItems = (): IProduct[] => {
+    const searchedProducts = search ? searchProduct() : products;
+    const byCategory = filterByCategory(searchedProducts);
+    const byPage = filterByPage(byCategory);
+    const sortedProducts = sortProducts(byPage);
+
+    return sortedProducts;
+  };
+
+  const filteredItems = filterItems();
+
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol>
-          <li>
-            Get started by editing <code>src/app/page.tsx</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
+    <main style={{ minHeight: "90vh" }}>
+      <CategoryMenu categories={categories} />
+      <Pagination itemsPerPage={itemsPerPage} products={products} />
+      <GridProducts>
+        {filteredItems.map((p, index) => (
+          <ProductCard
+            key={p.name + index}
+            src={p.src}
+            name={p.name}
+            price={p.price}
           />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+        ))}
+      </GridProducts>
+      <Pagination itemsPerPage={itemsPerPage} products={products} />
+    </main>
   );
 }
