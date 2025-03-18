@@ -3,11 +3,23 @@ import styled from "styled-components";
 export const HeaderContainer = styled.header`
   background: #fff;
   display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  position: fixed;
+  z-index: 10;
+`;
+
+export const Container = styled.div`
+  display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.5rem 10rem;
-  position: fixed;
   width: 100%;
+  max-width: 1120px;
+`;
+
+export const Spacing = styled.div`
+  margin-bottom: 5.6875rem;
 `;
 
 export const Logo = styled.a`
@@ -16,6 +28,7 @@ export const Logo = styled.a`
   font-family: "Saira Stencil One", sans-serif;
   color: #5d5d6d;
   cursor: pointer;
+  user-select: none;
 `;
 
 export const Nav = styled.nav`
@@ -32,7 +45,7 @@ export const SearchBar = styled.div`
   align-items: center;
   padding: 0 1rem;
 
-  > input {
+  input {
     background-color: transparent;
     border: none;
     outline: none;
@@ -41,8 +54,16 @@ export const SearchBar = styled.div`
     color: #000000;
   }
 
-  > svg {
-    color: #737380;
+  button {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+
+    svg {
+      color: #737380;
+    }
   }
 `;
 
