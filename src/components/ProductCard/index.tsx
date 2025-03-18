@@ -3,16 +3,17 @@
 import { moneyMask } from "@/utils/functions";
 import { Container, HorizontalLine, Price } from "./styles";
 import Image from "next/image";
+import { IProduct } from "@/app/page";
 
 interface Props {
-  src: string;
-  name: string;
-  price: number;
+  product: IProduct;
 }
 
-export default function ProductCard({ src, name, price }: Props) {
+export default function ProductCard({ product }: Props) {
+  const { id, src, name, price } = product;
+
   return (
-    <Container>
+    <Container href={`/${id}`}>
       <Image
         src={src}
         width={256}

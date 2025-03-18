@@ -9,6 +9,7 @@ export interface ICategory {
   value: string;
 }
 export interface IProduct {
+  id: number;
   src: string;
   name: string;
   price: number;
@@ -25,6 +26,7 @@ const categories: ICategory[] = [
 
 const products: IProduct[] = [
   {
+    id: 1,
     src: "https://down-br.img.susercontent.com/file/br-11134207-7r98o-lzszylrwm6o142",
     name: "T Shirt Feminina Camiseta",
     price: 24.99,
@@ -33,6 +35,7 @@ const products: IProduct[] = [
     quantitySold: 1,
   },
   {
+    id: 2,
     src: "https://down-br.img.susercontent.com/file/883a0156e011ad808f210267b1dad4e1",
     name: "Camiseta T-shirt Spy X Family",
     price: 49.99,
@@ -41,6 +44,7 @@ const products: IProduct[] = [
     quantitySold: 3,
   },
   {
+    id: 3,
     src: "https://down-br.img.susercontent.com/file/br-11134207-7r98o-lkmu2aapqcib55",
     name: "T Shirt Feminina Docinho",
     price: 23.99,
@@ -116,12 +120,7 @@ export default async function Home({ searchParams }: HomeProps) {
       <Pagination itemsPerPage={itemsPerPage} products={products} />
       <GridProducts>
         {filteredItems.map((p, index) => (
-          <ProductCard
-            key={p.name + index}
-            src={p.src}
-            name={p.name}
-            price={p.price}
-          />
+          <ProductCard key={p.name + index} product={p} />
         ))}
       </GridProducts>
       <Pagination itemsPerPage={itemsPerPage} products={products} />

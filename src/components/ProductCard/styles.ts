@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
+export const Container = styled.a`
   border-top-right-radius: 8px;
   border-top-left-radius: 8px;
   width: 256px;
