@@ -24,6 +24,10 @@ export const ButtonContainer = styled.div`
     background-color: rgb(13, 64, 95);
   }
   &:active {
-    background-color: rgb(14, 116, 180)
+    background-color: rgb(14, 116, 180);
+  }
+
+  @media (max-width: 768px) {
+    margin: 2rem 0;
   }
 `;

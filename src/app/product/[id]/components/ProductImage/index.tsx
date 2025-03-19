@@ -13,7 +13,10 @@ export default function ProductImage({ product }: Props) {
     <ImageContainer>
       <Image
         src={product?.src || ""}
-        fill
+        layout="responsive"
+        objectFit="cover"
+        width={640}
+        height={480}
         alt={product?.name + " Imagem"}
         style={{ borderRadius: "4px" }}
       />
