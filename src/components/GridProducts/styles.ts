@@ -7,7 +7,7 @@ export const Container = styled.header`
   row-gap: 1.5rem;
   padding-bottom: 2rem;
 
-  @media (max-width: 1024px) {
+  @media (max-width: 1200px) {
     justify-content: center;
   }
 `;

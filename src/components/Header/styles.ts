@@ -8,6 +8,10 @@ export const HeaderContainer = styled.header`
   width: 100%;
   position: fixed;
   z-index: 10;
+
+  @media (max-width: 768px) {
+    padding-bottom: 1rem;
+  }
 `;
 
 export const Container = styled.div`
@@ -16,10 +20,11 @@ export const Container = styled.div`
   justify-content: space-between;
   width: 100%;
   max-width: 1120px;
-`;
+  margin: 0 2rem;
 
-export const Spacing = styled.div`
-  margin-bottom: 5.6875rem;
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 `;
 
 export const Logo = styled.a`
@@ -31,19 +36,29 @@ export const Logo = styled.a`
   user-select: none;
 `;
 
-export const Nav = styled.nav`
+export const LeftSection = styled.div`
   display: flex;
   gap: 1rem;
+
+  @media (max-width: 768px) {
+    justify-content: space-between;
+    width: 100%;
+    form {
+      width: 100%;
+    }
+  }
 `;
 
 export const SearchBar = styled.div`
   width: 22rem;
+
   background-color: #f3f5f6;
   border-radius: 8px;
   border: none;
   display: flex;
   align-items: center;
   padding: 0 1rem;
+  box-sizing: border-box;
 
   input {
     background-color: transparent;
@@ -65,6 +80,10 @@ export const SearchBar = styled.div`
       color: #737380;
     }
   }
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 `;
 
 export const Cart = styled.a`
@@ -72,6 +91,7 @@ export const Cart = styled.a`
   align-items: center;
   cursor: pointer;
   position: relative;
+  width: fit-content;
 
   &:hover {
     text-decoration: underline;
@@ -88,8 +108,8 @@ export const Cart = styled.a`
     background-color: red;
     padding: 5px;
     border-radius: 10px;
-    width: 20px;
-    height: 20px;
+    width: 15px;
+    height: 15px;
 
     > span {
       font-size: 0.625rem;
@@ -97,5 +117,8 @@ export const Cart = styled.a`
       font-weight: 500;
       text-align: center;
     }
+  }
+
+  @media (max-width: 768px) {
   }
 `;

@@ -12,7 +12,10 @@ export const DropdownButton = styled.div<{ $isOpened: boolean }>`
   cursor: pointer;
 `;
 
-export const Options = styled.div<{ $isOpened: boolean }>`
+export const Options = styled.div<{
+  $isOpened: boolean;
+  position: "left" | "right";
+}>`
   display: ${(props) => (props.$isOpened ? "flex" : "none")};
   flex-direction: column;
   gap: 0.5rem;
@@ -25,7 +28,7 @@ export const Options = styled.div<{ $isOpened: boolean }>`
 
   position: absolute;
   top: 35px;
-  right: 0;
+  ${({ position }) => (position === "right" ? "right: 0;" : "left: 0;")}
   z-index: 10;
 
   a {
@@ -40,4 +43,5 @@ export const ScreenBackground = styled.div<{ $isOpened: boolean }>`
   left: 0;
   width: 100vw;
   height: 100vh;
+  z-index: 9;
 `;

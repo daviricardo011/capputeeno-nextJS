@@ -22,21 +22,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-br">
-      <body
-        className={`${saira.className}`}
-        style={{ display: "flex", justifyContent: "center", width: "100%" }}
-      >
+      <body className={`${saira.className}`}>
         <StyledComponentsRegistry>
           <Header />
-          <div
-            style={{
-              marginTop: "5.625rem",
-              width: "100%",
-              maxWidth: "1120px",
-            }}
-          >
-            {children}
-          </div>
+          <div className="headerSpacing">{children}</div>
         </StyledComponentsRegistry>
       </body>
     </html>

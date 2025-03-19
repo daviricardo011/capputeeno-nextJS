@@ -66,7 +66,7 @@ export default async function Home({ searchParams }: HomeProps) {
   const filteredItems = filterItems();
 
   return (
-    <main style={{ minHeight: "90vh" }}>
+    <main>
       <CategoryMenu categories={categories} />
       <Pagination itemsPerPage={itemsPerPage} products={products} />
       <GridProducts>

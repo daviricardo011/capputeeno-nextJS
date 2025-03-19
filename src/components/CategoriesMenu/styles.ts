@@ -5,7 +5,6 @@ export const Container = styled.div`
   align-items: center;
   justify-content: space-between;
   padding-bottom: 1.5rem;
-  width: 100%;
   user-select: none;
 `;
 

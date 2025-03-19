@@ -4,41 +4,58 @@ import { useState } from "react";
 import { Container, DropdownButton, Options, ScreenBackground } from "./styles";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import { useSearchParams } from "next/navigation";
+export interface IDropdownOption {
+  label: string;
+  value: string;
+}
 
-const dropdownOptions = [
-  { label: "Novidades", value: "news" },
-  { label: "Preço: Maior - menor", value: "highestPrice" },
-  { label: "Preço: Menor - maior", value: "lowestPrice" },
-  { label: "Mais vendidos", value: "bestSellers" },
-];
+interface Props {
+  options: IDropdownOption[];
+  title: string;
+  position: "right" | "left";
+  type: "category" | "sortBy";
+}
 
-export default function DropdownMenu() {
+export default function DropdownMenu({
+  options,
+  title,
+  position,
+  type,
+}: Props) {
   const [dropdownOpened, setDropdownOpened] = useState<boolean>(false);
   const searchParams = useSearchParams();
 
   const updatePageParam = (sortValue: string) => {
     const params = new URLSearchParams(searchParams.toString());
-    params.set("sortBy", sortValue);
+    if (!sortValue) {
+      params.delete(type);
+    } else {
+      params.set(type, sortValue);
+    }
     return `/?${params.toString()}`;
   };
 
   return (
     <Container>
-      <DropdownButton
-        className="button"
-        onClick={() => setDropdownOpened(!dropdownOpened)}
-        $isOpened={dropdownOpened}
-      >
-        <span>Organizar por</span>
-        {dropdownOpened ? <IoIosArrowUp /> : <IoIosArrowDown />}
-      </DropdownButton>
       <ScreenBackground
         $isOpened={dropdownOpened}
         className="screenBackground"
         onClick={() => setDropdownOpened(!dropdownOpened)}
       />
-      <Options className="dropdown" $isOpened={dropdownOpened}>
-        {dropdownOptions.map((option) => (
+      <DropdownButton
+        className="button"
+        onClick={() => setDropdownOpened(!dropdownOpened)}
+        $isOpened={dropdownOpened}
+      >
+        <span>{title}</span>
+        {dropdownOpened ? <IoIosArrowUp /> : <IoIosArrowDown />}
+      </DropdownButton>
+      <Options
+        className="dropdown"
+        $isOpened={dropdownOpened}
+        position={position}
+      >
+        {options.map((option) => (
           <a key={option.value} href={updatePageParam(option.value)}>
             {option.label}
           </a>

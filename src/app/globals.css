@@ -19,6 +19,24 @@ body {
 body {
   color: var(--foreground);
   background: var(--background);
+  display: flex;
+  justify-content: center;
+  width: 100%;
+
+  .headerSpacing {
+    margin-top: 5.625rem;
+    width: 100%;
+    max-width: 1120px;
+
+    @media (max-width: 1200px) {
+      margin-left: 2rem;
+      margin-right: 2rem;
+    }
+
+    @media (max-width: 768px) {
+      margin-top: 8.1875rem;
+    }
+  }
 }
 
 * {
@@ -30,4 +48,31 @@ body {
 a {
   color: inherit;
   text-decoration: none;
+}
+
+@media (max-width: 768px) {
+  .onlyMobile {
+    display: block;
+  }
+  .onlyDesktop {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .onlyMobile {
+    display: contents;
+  }
+  .onlyDesktop {
+    display: none;
+  }
+}
+
+@media (min-width: 768px) {
+  .onlyMobile {
+    display: none;
+  }
+  .onlyDesktop {
+    display: contents;
+  }
 }
