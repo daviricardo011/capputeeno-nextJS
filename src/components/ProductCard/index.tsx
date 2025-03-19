@@ -3,7 +3,7 @@
 import { moneyMask } from "@/utils/functions";
 import { Container, HorizontalLine, Price } from "./styles";
 import Image from "next/image";
-import { IProduct } from "@/app/page";
+import { IProduct } from "@/mocks/products";
 
 interface Props {
   product: IProduct;
