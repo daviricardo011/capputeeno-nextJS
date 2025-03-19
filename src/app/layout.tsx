@@ -30,7 +30,7 @@ export default function RootLayout({
           <Header />
           <div
             style={{
-              marginTop: "7.125rem",
+              marginTop: "5.625rem",
               width: "100%",
               maxWidth: "1120px",
             }}
