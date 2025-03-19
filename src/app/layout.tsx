@@ -3,6 +3,7 @@ import { Saira } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import StyledComponentsRegistry from "../../lib/registry";
+import { CartProvider } from "@/contexts/CartContext";
 
 const saira = Saira({
   variable: "--font-saira",
@@ -23,10 +24,12 @@ export default function RootLayout({
   return (
     <html lang="pt-br">
       <body className={`${saira.className}`}>
-        <StyledComponentsRegistry>
-          <Header />
-          <div className="headerSpacing">{children}</div>
-        </StyledComponentsRegistry>
+        <CartProvider>
+          <StyledComponentsRegistry>
+            <Header />
+            <div className="headerSpacing">{children}</div>
+          </StyledComponentsRegistry>
+        </CartProvider>
       </body>
     </html>
   );

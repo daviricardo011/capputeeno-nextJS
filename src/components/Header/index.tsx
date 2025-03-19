@@ -1,6 +1,6 @@
 "use client";
 
-import { FiSearch } from "react-icons/fi";
+import { FiSearch, FiShoppingBag } from "react-icons/fi";
 import {
   HeaderContainer,
   Logo,
@@ -10,9 +10,9 @@ import {
   Container,
 } from "./styles";
 import { Saira_Stencil_One } from "next/font/google";
-import Image from "next/image";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { useCart } from "@/contexts/CartContext";
 
 const sairaStencil = Saira_Stencil_One({
   subsets: ["latin"],
@@ -22,6 +22,7 @@ const sairaStencil = Saira_Stencil_One({
 export default function Header() {
   const router = useRouter();
   const [searchQuery, setSearchQuery] = useState("");
+  const { cart } = useCart();
 
   const handleSearchSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -47,14 +48,9 @@ export default function Header() {
             </SearchBar>
           </form>
           <Cart href="/carrinho">
-            <Image
-              src="/cartIcon.svg"
-              width={24}
-              height={24}
-              alt={"Sacola de compras"}
-            />
+            <FiShoppingBag size={24} />
             <div>
-              <span>1</span>
+              <span>{cart.length}</span>
             </div>
           </Cart>
         </LeftSection>
