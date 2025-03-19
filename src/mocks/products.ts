@@ -6,6 +6,7 @@ export interface IProduct {
   category: string;
   createdAt: string;
   quantitySold: number;
+  description: string;
 }
 
 export const products: IProduct[] = [
@@ -17,6 +18,8 @@ export const products: IProduct[] = [
     category: "camiseta",
     createdAt: "2025-02-21T19:08:40.806Z",
     quantitySold: 1,
+    description:
+      "Aqui vem um texto descritivo do produto, esta caixa de texto servirá apenas de exemplo para que simule algum texto que venha a ser inserido nesse campo, descrevendo tal produto.",
   },
   {
     id: 2,
@@ -26,6 +29,8 @@ export const products: IProduct[] = [
     category: "caneca",
     createdAt: "2025-03-10T19:08:40.806Z",
     quantitySold: 3,
+    description:
+      "Aqui vem um texto descritivo do produto, esta caixa de texto servirá apenas de exemplo para que simule algum texto que venha a ser inserido nesse campo, descrevendo tal produto.",
   },
   {
     id: 3,
@@ -35,6 +40,8 @@ export const products: IProduct[] = [
     category: "camiseta",
     createdAt: "2025-03-15T19:08:40.806Z",
     quantitySold: 2,
+    description:
+      "Aqui vem um texto descritivo do produto, esta caixa de texto servirá apenas de exemplo para que simule algum texto que venha a ser inserido nesse campo, descrevendo tal produto.",
   },
   {
     id: 4,
@@ -44,6 +51,8 @@ export const products: IProduct[] = [
     category: "camiseta",
     createdAt: "2025-02-21T19:08:40.806Z",
     quantitySold: 1,
+    description:
+      "Aqui vem um texto descritivo do produto, esta caixa de texto servirá apenas de exemplo para que simule algum texto que venha a ser inserido nesse campo, descrevendo tal produto.",
   },
   {
     id: 5,
@@ -53,6 +62,8 @@ export const products: IProduct[] = [
     category: "caneca",
     createdAt: "2025-03-10T19:08:40.806Z",
     quantitySold: 3,
+    description:
+      "Aqui vem um texto descritivo do produto, esta caixa de texto servirá apenas de exemplo para que simule algum texto que venha a ser inserido nesse campo, descrevendo tal produto.",
   },
   {
     id: 6,
@@ -62,6 +73,8 @@ export const products: IProduct[] = [
     category: "camiseta",
     createdAt: "2025-03-15T19:08:40.806Z",
     quantitySold: 2,
+    description:
+      "Aqui vem um texto descritivo do produto, esta caixa de texto servirá apenas de exemplo para que simule algum texto que venha a ser inserido nesse campo, descrevendo tal produto.",
   },
   {
     id: 7,
@@ -71,6 +84,8 @@ export const products: IProduct[] = [
     category: "camiseta",
     createdAt: "2025-02-21T19:08:40.806Z",
     quantitySold: 1,
+    description:
+      "Aqui vem um texto descritivo do produto, esta caixa de texto servirá apenas de exemplo para que simule algum texto que venha a ser inserido nesse campo, descrevendo tal produto.",
   },
   {
     id: 8,
@@ -80,6 +95,8 @@ export const products: IProduct[] = [
     category: "caneca",
     createdAt: "2025-03-10T19:08:40.806Z",
     quantitySold: 3,
+    description:
+      "Aqui vem um texto descritivo do produto, esta caixa de texto servirá apenas de exemplo para que simule algum texto que venha a ser inserido nesse campo, descrevendo tal produto.",
   },
   {
     id: 9,
@@ -89,6 +106,8 @@ export const products: IProduct[] = [
     category: "camiseta",
     createdAt: "2025-03-15T19:08:40.806Z",
     quantitySold: 2,
+    description:
+      "Aqui vem um texto descritivo do produto, esta caixa de texto servirá apenas de exemplo para que simule algum texto que venha a ser inserido nesse campo, descrevendo tal produto.",
   },
   {
     id: 10,
@@ -98,6 +117,8 @@ export const products: IProduct[] = [
     category: "camiseta",
     createdAt: "2025-02-21T19:08:40.806Z",
     quantitySold: 1,
+    description:
+      "Aqui vem um texto descritivo do produto, esta caixa de texto servirá apenas de exemplo para que simule algum texto que venha a ser inserido nesse campo, descrevendo tal produto.",
   },
   {
     id: 11,
@@ -107,6 +128,8 @@ export const products: IProduct[] = [
     category: "caneca",
     createdAt: "2025-03-10T19:08:40.806Z",
     quantitySold: 3,
+    description:
+      "Aqui vem um texto descritivo do produto, esta caixa de texto servirá apenas de exemplo para que simule algum texto que venha a ser inserido nesse campo, descrevendo tal produto.",
   },
   {
     id: 12,
@@ -116,6 +139,8 @@ export const products: IProduct[] = [
     category: "camiseta",
     createdAt: "2025-03-15T19:08:40.806Z",
     quantitySold: 2,
+    description:
+      "Aqui vem um texto descritivo do produto, esta caixa de texto servirá apenas de exemplo para que simule algum texto que venha a ser inserido nesse campo, descrevendo tal produto.",
   },
   {
     id: 13,
@@ -125,6 +150,8 @@ export const products: IProduct[] = [
     category: "camiseta",
     createdAt: "2025-02-21T19:08:40.806Z",
     quantitySold: 1,
+    description:
+      "Aqui vem um texto descritivo do produto, esta caixa de texto servirá apenas de exemplo para que simule algum texto que venha a ser inserido nesse campo, descrevendo tal produto.",
   },
   {
     id: 14,
@@ -134,6 +161,8 @@ export const products: IProduct[] = [
     category: "caneca",
     createdAt: "2025-03-10T19:08:40.806Z",
     quantitySold: 3,
+    description:
+      "Aqui vem um texto descritivo do produto, esta caixa de texto servirá apenas de exemplo para que simule algum texto que venha a ser inserido nesse campo, descrevendo tal produto.",
   },
   {
     id: 15,
@@ -143,6 +172,8 @@ export const products: IProduct[] = [
     category: "camiseta",
     createdAt: "2025-03-15T19:08:40.806Z",
     quantitySold: 2,
+    description:
+      "Aqui vem um texto descritivo do produto, esta caixa de texto servirá apenas de exemplo para que simule algum texto que venha a ser inserido nesse campo, descrevendo tal produto.",
   },
   {
     id: 16,
@@ -152,6 +183,8 @@ export const products: IProduct[] = [
     category: "camiseta",
     createdAt: "2025-02-21T19:08:40.806Z",
     quantitySold: 1,
+    description:
+      "Aqui vem um texto descritivo do produto, esta caixa de texto servirá apenas de exemplo para que simule algum texto que venha a ser inserido nesse campo, descrevendo tal produto.",
   },
   {
     id: 17,
@@ -161,6 +194,8 @@ export const products: IProduct[] = [
     category: "caneca",
     createdAt: "2025-03-10T19:08:40.806Z",
     quantitySold: 3,
+    description:
+      "Aqui vem um texto descritivo do produto, esta caixa de texto servirá apenas de exemplo para que simule algum texto que venha a ser inserido nesse campo, descrevendo tal produto.",
   },
   {
     id: 18,
@@ -170,6 +205,8 @@ export const products: IProduct[] = [
     category: "camiseta",
     createdAt: "2025-03-15T19:08:40.806Z",
     quantitySold: 2,
+    description:
+      "Aqui vem um texto descritivo do produto, esta caixa de texto servirá apenas de exemplo para que simule algum texto que venha a ser inserido nesse campo, descrevendo tal produto.",
   },
   {
     id: 19,
@@ -179,6 +216,8 @@ export const products: IProduct[] = [
     category: "camiseta",
     createdAt: "2025-02-21T19:08:40.806Z",
     quantitySold: 1,
+    description:
+      "Aqui vem um texto descritivo do produto, esta caixa de texto servirá apenas de exemplo para que simule algum texto que venha a ser inserido nesse campo, descrevendo tal produto.",
   },
   {
     id: 20,
@@ -188,6 +227,8 @@ export const products: IProduct[] = [
     category: "caneca",
     createdAt: "2025-03-10T19:08:40.806Z",
     quantitySold: 3,
+    description:
+      "Aqui vem um texto descritivo do produto, esta caixa de texto servirá apenas de exemplo para que simule algum texto que venha a ser inserido nesse campo, descrevendo tal produto.",
   },
   {
     id: 21,
@@ -197,5 +238,7 @@ export const products: IProduct[] = [
     category: "camiseta",
     createdAt: "2025-03-15T19:08:40.806Z",
     quantitySold: 2,
+    description:
+      "Aqui vem um texto descritivo do produto, esta caixa de texto servirá apenas de exemplo para que simule algum texto que venha a ser inserido nesse campo, descrevendo tal produto.",
   },
 ];

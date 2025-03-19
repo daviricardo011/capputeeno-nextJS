@@ -13,7 +13,7 @@ export default function ProductCard({ product }: Props) {
   const { id, src, name, price } = product;
 
   return (
-    <Container href={`/${id}`}>
+    <Container href={`/product/${id}`}>
       <Image
         src={src}
         width={256}

@@ -92,15 +92,14 @@ export const Cart = styled.a`
   cursor: pointer;
   position: relative;
   width: fit-content;
-
-  &:hover {
-    text-decoration: underline;
+  svg {
+    color: #737380;
   }
 
   > div {
     position: absolute;
-    bottom: -2px;
-    right: -9px;
+    bottom: 0px;
+    right: -7px;
 
     display: flex;
     align-items: center;
@@ -108,8 +107,8 @@ export const Cart = styled.a`
     background-color: red;
     padding: 5px;
     border-radius: 10px;
-    width: 15px;
-    height: 15px;
+    width: 17px;
+    height: 17px;
 
     > span {
       font-size: 0.625rem;
