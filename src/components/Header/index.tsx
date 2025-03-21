@@ -47,7 +47,7 @@ export default function Header() {
               </button>
             </SearchBar>
           </form>
-          <Cart href="/carrinho">
+          <Cart href="/shoppingCart">
             <FiShoppingBag size={24} />
             <div>
               <span>{cart.length}</span>
