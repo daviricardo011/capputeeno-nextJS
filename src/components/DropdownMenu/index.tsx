@@ -12,8 +12,9 @@ export interface IDropdownOption {
 interface Props {
   options: IDropdownOption[];
   title: string;
-  position: "right" | "left";
-  type: "category" | "sortBy";
+  position: "right" | "left" | "up";
+  type: "category" | "sortBy" | "help";
+  url?: string;
 }
 
 export default function DropdownMenu({
@@ -21,6 +22,7 @@ export default function DropdownMenu({
   title,
   position,
   type,
+  url,
 }: Props) {
   const [dropdownOpened, setDropdownOpened] = useState<boolean>(false);
   const searchParams = useSearchParams();
@@ -32,7 +34,7 @@ export default function DropdownMenu({
     } else {
       params.set(type, sortValue);
     }
-    return `/?${params.toString()}`;
+    return `${url || ""}/?${params.toString()}`;
   };
 
   return (

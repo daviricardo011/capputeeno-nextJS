@@ -9,7 +9,7 @@ import {
 } from "./styles";
 import { useEffect, useState } from "react";
 import { moneyMask } from "@/utils/functions";
-import CartProductCart, { IQntProduct } from "../CartProductCard";
+import CartProductCard, { IQntProduct } from "../CartProductCard";
 
 interface Props {
   products: IQntProduct[];
@@ -24,9 +24,11 @@ export default function ProductImage({ products, changeQuantity }: Props) {
 
   useEffect(() => {
     const getTotals = () => {
-      const totalLength = products.length;
+      const totalLength = products
+        .map((p) => 1 * (p.quantity || 1))
+        .reduce((result, actual) => result + actual, 0);
       const totalValue = products
-        .map((p) => p.price)
+        .map((p) => p.price * (p.quantity || 1))
         .reduce((result, actual) => result + actual, 0);
 
       setTotals({
@@ -48,7 +50,7 @@ export default function ProductImage({ products, changeQuantity }: Props) {
       </TitleContainer>
       <ProductsContainer>
         {products.map((product) => (
-          <CartProductCart
+          <CartProductCard
             key={product.id}
             product={product}
             changeQuantity={changeQuantity}

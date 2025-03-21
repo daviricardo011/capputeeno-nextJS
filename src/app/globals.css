@@ -62,18 +62,18 @@ a {
 
 @media (max-width: 768px) {
   .onlyMobile {
-    display: contents;
+    display: contents !important;
   }
   .onlyDesktop {
-    display: none;
+    display: none !important;
   }
 }
 
 @media (min-width: 768px) {
   .onlyMobile {
-    display: none;
+    display: none !important;
   }
   .onlyDesktop {
-    display: contents;
+    display: contents !important;
   }
 }

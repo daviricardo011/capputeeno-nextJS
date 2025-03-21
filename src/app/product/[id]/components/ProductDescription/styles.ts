@@ -3,14 +3,18 @@ import styled from "styled-components";
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
-  max-width: 448px;
-  max-height: 580px;
   justify-content: space-between;
+  max-width: 28rem;
+  height: 40rem;
+
+  @media (max-width: 1200px) {
+    height: auto;
+  }
 `;
 export const MainInfo = styled.div`
   display: flex;
   flex-direction: column;
-  max-width: 448px;
+  max-width: 28rem;
   margin-bottom: 3rem;
 `;
 export const ProductCategory = styled.span`

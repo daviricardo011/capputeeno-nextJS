@@ -6,6 +6,7 @@ import { useCart } from "@/contexts/CartContext";
 import { useEffect, useState } from "react";
 import { IProduct, products } from "@/mocks/products";
 import { IQntProduct } from "../CartProductCard";
+import CartDescription from "@/app/shoppingCart/components/CartDescription";
 
 export default function CartDetails() {
   const { cart, setCart } = useCart();
@@ -34,12 +35,9 @@ export default function CartDetails() {
   }, [cart]);
 
   const changeQuantity = (id: number, quantity: number) => {
-console.log(id)
-console.log(quantity)
     const cartStr = localStorage.getItem("cart");
     let currentCart: number[] = cartStr ? JSON.parse(cartStr) : [];
     currentCart = currentCart.filter((productId) => productId !== id);
-    console.log(currentCart);
     const newEntries = Array.from({ length: quantity }, () => id);
     const newCart = [...currentCart, ...newEntries];
 
@@ -50,7 +48,7 @@ console.log(quantity)
   return (
     <Container>
       <CartProducts products={cartProducts} changeQuantity={changeQuantity} />
-      {/* <ProductDescription product={product} /> */}
+      <CartDescription products={cartProducts} />
     </Container>
   );
 }

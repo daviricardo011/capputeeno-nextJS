@@ -14,7 +14,7 @@ export const DropdownButton = styled.div<{ $isOpened: boolean }>`
 
 export const Options = styled.div<{
   $isOpened: boolean;
-  position: "left" | "right";
+  position: "left" | "right" | "up";
 }>`
   display: ${(props) => (props.$isOpened ? "flex" : "none")};
   flex-direction: column;
@@ -27,8 +27,8 @@ export const Options = styled.div<{
   box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.1);
 
   position: absolute;
-  top: 35px;
-  ${({ position }) => (position === "right" ? "right: 0;" : "left: 0;")}
+  top: -100px;
+  /* ${({ position }) => (position === "right" ? "right: 0;" : "top: 0;")} */
   z-index: 10;
 
   a {

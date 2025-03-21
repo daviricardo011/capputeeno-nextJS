@@ -1,8 +1,8 @@
 "use client";
 
 import { FiShoppingBag } from "react-icons/fi";
-import { ButtonContainer } from "./styles";
 import { useCart } from "@/contexts/CartContext";
+import Button from "@/components/Button";
 
 interface Props {
   productId: number;
@@ -33,9 +33,10 @@ export default function AddShoppingCartButton({ productId }: Props) {
   }
 
   return (
-    <ButtonContainer onClick={() => saveProductId()}>
-      <FiShoppingBag size={24} />
-      <span>Adicionar ao carrinho</span>
-    </ButtonContainer>
+    <Button
+      text={"Adicionar ao carrinho"}
+      icon={FiShoppingBag}
+      onClick={() => saveProductId()}
+    />
   );
 }

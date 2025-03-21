@@ -25,7 +25,7 @@ interface Props {
   changeQuantity: (id: number, quantity: number) => void;
 }
 
-export default function CartProductCart({ product, changeQuantity }: Props) {
+export default function CartProductCard({ product, changeQuantity }: Props) {
   const [quantity, setQuantity] = useState<number>(0);
 
   useEffect(() => {
@@ -43,11 +43,9 @@ export default function CartProductCart({ product, changeQuantity }: Props) {
         <Image
           src={product.src}
           alt={`${product.name} Imagem`}
-          layout="fixed"
-          width={256}
-          height={211}
+          layout="fill"
+          objectFit="cover"
           style={{
-            objectFit: "cover",
             borderTopLeftRadius: "4px",
             borderBottomLeftRadius: "4px",
           }}

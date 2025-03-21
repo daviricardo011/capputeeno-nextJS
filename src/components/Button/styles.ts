@@ -1,12 +1,12 @@
 import styled from "styled-components";
 
-export const ButtonContainer = styled.div`
+export const ButtonContainer = styled.div<{ $secondary: boolean }>`
   display: flex;
   border-radius: 4px;
   width: 100%;
   align-items: center;
   justify-content: center;
-  background-color: #115d8c;
+  background-color: ${(props) => (props.$secondary ? "#51B853" : "#115d8c")};
   color: #f5f5fa;
   padding: 0.625rem 0;
   gap: 0.75rem;
@@ -21,10 +21,12 @@ export const ButtonContainer = styled.div`
   }
 
   &:hover {
-    background-color: rgb(13, 64, 95);
+    background-color: ${(props) =>
+      props.$secondary ? "rgb(66, 156, 68)" : "rgb(13, 64, 95)"};
   }
   &:active {
-    background-color: rgb(14, 116, 180);
+    background-color: ${(props) =>
+      props.$secondary ? "rgb(20, 184, 23)" : "rgb(14, 116, 180)"};
   }
 
   @media (max-width: 768px) {
