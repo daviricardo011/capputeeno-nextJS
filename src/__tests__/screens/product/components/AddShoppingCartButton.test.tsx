@@ -55,10 +55,7 @@ describe("AddShoppingCartButton", () => {
 
     const button = screen.getByText("Adicionar ao carrinho");
 
-    // Verifica se o erro não quebra o fluxo
     fireEvent.click(button);
-
-    // Certifica-se de que o setCart não foi chamado devido ao erro
     expect(mockSetCart).not.toHaveBeenCalled();
 
     if (originalLocalStorage) {
