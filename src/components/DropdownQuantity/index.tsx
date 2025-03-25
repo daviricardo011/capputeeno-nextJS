@@ -36,18 +36,28 @@ export default function DropdownQuantity({
         $isOpened={dropdownOpened}
         className="screenBackground"
         onClick={() => setDropdownOpened(!dropdownOpened)}
+        data-testid="screen-background"
       />
       <DropdownButton
         className="button"
         onClick={() => setDropdownOpened(!dropdownOpened)}
         $isOpened={dropdownOpened}
+        data-testid="dropdown-button"
       >
         <span>{selectedValue}</span>
         {dropdownOpened ? <IoIosArrowUp /> : <IoIosArrowDown />}
       </DropdownButton>
-      <Options className="dropdown" $isOpened={dropdownOpened}>
+      <Options
+        className="dropdown"
+        $isOpened={dropdownOpened}
+        data-testid="dropdown-options"
+      >
         {options.map((option) => (
-          <span key={option.value} onClick={() => selectValue(option.value)}>
+          <span
+            key={option.value}
+            onClick={() => selectValue(option.value)}
+            data-testid={`dropdown-option-${option.value}`}
+          >
             {option.label}
           </span>
         ))}

@@ -13,18 +13,19 @@ export default function ProductCard({ product }: Props) {
   const { id, src, name, price } = product;
 
   return (
-    <Container href={`/product/${id}`}>
+    <Container href={`/product/${id}`} data-testid={`product-card-${id}`}>
       <Image
         src={src}
         width={256}
         height={300}
         alt={"Produto"}
         style={{ borderTopRightRadius: "8px", borderTopLeftRadius: "8px" }}
+        data-testid={`product-image-${id}`}
       />
 
-      <p>{name}</p>
+      <p data-testid={`product-name-${id}`}>{name}</p>
       <HorizontalLine />
-      <Price>{moneyMask(price)}</Price>
+      <Price data-testid={`product-price-${id}`}>{moneyMask(price)}</Price>
     </Container>
   );
 }

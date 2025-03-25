@@ -1,5 +1,3 @@
-"use client";
-
 import { IconType } from "react-icons";
 import { ButtonContainer } from "./styles";
 
@@ -9,6 +7,7 @@ interface Props {
   secondary?: boolean;
   onClick: () => void;
 }
+
 export default function Button({
   text,
   icon: Icon,
@@ -16,9 +15,19 @@ export default function Button({
   onClick,
 }: Props) {
   return (
-    <ButtonContainer $secondary={!!secondary} onClick={onClick}>
-      {Icon && <Icon size={24} />}
-      <span>{text}</span>
+    <ButtonContainer
+      $secondary={!!secondary}
+      onClick={onClick}
+      data-testid={`button-${text.replaceAll(" ", "-")}`}
+    >
+      {Icon && (
+        <span data-testid={`button-icon-${text.replaceAll(" ", "-")}`}>
+          <Icon size={24} />
+        </span>
+      )}
+      <span data-testid={`button-text-${text.replaceAll(" ", "-")}`}>
+        {text}
+      </span>
     </ButtonContainer>
   );
 }

@@ -33,10 +33,12 @@ export default function AddShoppingCartButton({ productId }: Props) {
   }
 
   return (
-    <Button
-      text={"Adicionar ao carrinho"}
-      icon={FiShoppingBag}
-      onClick={() => saveProductId()}
-    />
+    <div data-testid="add-shopping-cart-button">
+      <Button
+        text={"Adicionar ao carrinho"}
+        icon={FiShoppingBag}
+        onClick={() => saveProductId()}
+      />
+    </div>
   );
 }

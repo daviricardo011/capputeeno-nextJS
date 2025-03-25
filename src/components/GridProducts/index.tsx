@@ -8,5 +8,7 @@ interface Props {
 }
 
 export const GridProducts = ({ children }: Props) => {
-  return <Container>{children}</Container>;
+  return (
+    <Container data-testid="grid-products-container">{children}</Container>
+  );
 };

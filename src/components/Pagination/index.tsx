@@ -2,9 +2,9 @@
 
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { Container, PaginationMenu, NavButton } from "./styles";
-import { IProduct } from "@/app/page";
 import { useSearchParams } from "next/navigation";
 import { useMemo } from "react";
+import { IProduct } from "@/mocks/products";
 
 interface Props {
   products: IProduct[];
@@ -42,12 +42,13 @@ export default function Pagination({ products, itemsPerPage }: Props) {
 
   return (
     <Container>
-      <PaginationMenu>
+      <PaginationMenu data-testid="pagination-menu">
         {pageButtons.map((page) => (
           <NavButton
             key={page}
             $isActive={actualPage === page}
             href={updatePageParam(page)}
+            data-testid={`page-button-${page}`}
           >
             {page}
           </NavButton>
@@ -56,6 +57,7 @@ export default function Pagination({ products, itemsPerPage }: Props) {
           $isActive={false}
           disabled={isFirstPage}
           href={isFirstPage ? undefined : updatePageParam(actualPage - 1)}
+          data-testid="prev-page-button"
         >
           <IoIosArrowBack />
         </NavButton>
@@ -63,6 +65,7 @@ export default function Pagination({ products, itemsPerPage }: Props) {
           $isActive={false}
           disabled={isLastPage}
           href={isLastPage ? undefined : updatePageParam(actualPage + 1)}
+          data-testid="next-page-button"
         >
           <IoIosArrowForward />
         </NavButton>

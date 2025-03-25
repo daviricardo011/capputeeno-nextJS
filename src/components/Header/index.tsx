@@ -29,28 +29,29 @@ export default function Header() {
     router.push(`/?search=${encodeURIComponent(searchQuery)}`);
   };
   return (
-    <HeaderContainer>
+    <HeaderContainer data-testid="header-container">
       <Container>
-        <Logo href="/" className={sairaStencil.className}>
+        <Logo href="/" className={sairaStencil.className} data-testid="logo">
           capputeeno
         </Logo>
         <LeftSection>
-          <form onSubmit={handleSearchSubmit}>
-            <SearchBar>
+          <form onSubmit={handleSearchSubmit} data-testid="search-form">
+            <SearchBar data-testid="search-bar">
               <input
                 placeholder="Procurando por algo específico?"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
+                data-testid="search-input"
               />
-              <button type="submit">
+              <button type="submit" data-testid="search-button">
                 <FiSearch size={24} />
               </button>
             </SearchBar>
           </form>
-          <Cart href="/shoppingCart">
+          <Cart href="/shoppingCart" data-testid="cart-button">
             <FiShoppingBag size={24} />
             <div>
-              <span>{cart.length}</span>
+              <span data-testid="cart-count">{cart.length}</span>
             </div>
           </Cart>
         </LeftSection>

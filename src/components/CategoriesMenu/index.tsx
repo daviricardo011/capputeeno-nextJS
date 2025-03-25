@@ -29,26 +29,28 @@ export default function CategoryMenu({ categories }: Props) {
   };
 
   return (
-    <Container>
-      <div className={"onlyDesktop"}>
-        <NavMenu>
+    <Container data-testid="category-menu">
+      <div className={"onlyDesktop"} data-testid="desktop-nav">
+        <NavMenu data-testid="nav-menu">
           {categories.map((cat) => (
             <NavItem
               key={cat.id}
               $isActive={activeCategory === cat.value}
               href={cat.value ? `/?category=${cat.value}` : `/`}
+              data-testid={`nav-item-${cat.value}`}
             >
               {cat.name}
             </NavItem>
           ))}
         </NavMenu>
       </div>
-      <div className={"onlyMobile"}>
+      <div className={"onlyMobile"} data-testid="mobile-dropdown">
         <DropdownMenu
           title={"Filtrar por"}
           options={createOptions()}
           position={"left"}
           type={"category"}
+          data-testid="filter-dropdown"
         />
       </div>
       <DropdownMenu
@@ -56,6 +58,7 @@ export default function CategoryMenu({ categories }: Props) {
         options={dropdownOptions}
         position={"right"}
         type={"sortBy"}
+        data-testid="sort-dropdown"
       />
     </Container>
   );

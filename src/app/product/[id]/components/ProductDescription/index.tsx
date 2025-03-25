@@ -22,23 +22,31 @@ interface Props {
 
 export default function ProductDescription({ product }: Props) {
   return (
-    <Container>
+    <Container data-testid="product-description">
       <div>
-        <MainInfo>
-          <ProductCategory>
+        <MainInfo data-testid="main-info">
+          <ProductCategory data-testid="product-category">
             {categories.find((c) => c.value === product.category)?.name}
           </ProductCategory>
-          <ProductTitle>{product.name}</ProductTitle>
-          <ProductPrice>{moneyMask(product.price)}</ProductPrice>
-          <ProductWarning>
+          <ProductTitle data-testid="product-title">
+            {product.name}
+          </ProductTitle>
+          <ProductPrice data-testid="product-price">
+            {moneyMask(product.price)}
+          </ProductPrice>
+          <ProductWarning data-testid="product-warning">
             *Frete de R$40,00 para todo o Brasil. Grátis para compras acima de
             R$900,00.
           </ProductWarning>
         </MainInfo>
 
-        <Description>
-          <DescriptionTitle>DESCRIÇÃO</DescriptionTitle>
-          <DescriptionText>{product.description}</DescriptionText>
+        <Description data-testid="description">
+          <DescriptionTitle data-testid="description-title">
+            DESCRIÇÃO
+          </DescriptionTitle>
+          <DescriptionText data-testid="description-text">
+            {product.description}
+          </DescriptionText>
         </Description>
       </div>
 

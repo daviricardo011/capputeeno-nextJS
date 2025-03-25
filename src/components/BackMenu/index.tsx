@@ -9,7 +9,7 @@ export default function BackMenu() {
 
   return (
     <Container>
-      <NavItem onClick={() => router.back()}>
+      <NavItem onClick={() => router.back()} data-testid={"backButton"}>
         <Image src="/backwardIcon.svg" width={24} height={24} alt={"Voltar"} />
         <span>Voltar</span>
       </NavItem>

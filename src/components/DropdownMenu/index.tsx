@@ -12,7 +12,7 @@ export interface IDropdownOption {
 interface Props {
   options: IDropdownOption[];
   title: string;
-  position: "right" | "left" | "up";
+  position: "right" | "left" | "top";
   type: "category" | "sortBy" | "help";
   url?: string;
 }
@@ -28,7 +28,7 @@ export default function DropdownMenu({
   const searchParams = useSearchParams();
 
   const updatePageParam = (sortValue: string) => {
-    const params = new URLSearchParams(searchParams.toString());
+    const params = new URLSearchParams(searchParams?.toString());
     if (!sortValue) {
       params.delete(type);
     } else {
@@ -38,16 +38,18 @@ export default function DropdownMenu({
   };
 
   return (
-    <Container>
+    <Container data-testid={`dropdown-container-${title}`}>
       <ScreenBackground
         $isOpened={dropdownOpened}
         className="screenBackground"
         onClick={() => setDropdownOpened(!dropdownOpened)}
+        data-testid={`screen-background-${title}`}
       />
       <DropdownButton
         className="button"
         onClick={() => setDropdownOpened(!dropdownOpened)}
         $isOpened={dropdownOpened}
+        data-testid={`dropdown-button-${title}`}
       >
         <span>{title}</span>
         {dropdownOpened ? <IoIosArrowUp /> : <IoIosArrowDown />}
@@ -56,9 +58,14 @@ export default function DropdownMenu({
         className="dropdown"
         $isOpened={dropdownOpened}
         position={position}
+        data-testid={`dropdown-options-${title}`}
       >
         {options.map((option) => (
-          <a key={option.value} href={updatePageParam(option.value)}>
+          <a
+            key={option.value}
+            href={updatePageParam(option.value)}
+            data-testid={`dropdown-option-${title}-${option.value}`}
+          >
             {option.label}
           </a>
         ))}
