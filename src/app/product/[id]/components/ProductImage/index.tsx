@@ -10,7 +10,7 @@ interface Props {
 
 export default function ProductImage({ product }: Props) {
   return (
-    <ImageContainer>
+    <ImageContainer data-testid={`product-image-container-${product.id}`}>
       <Image
         src={product?.src || ""}
         layout="responsive"
@@ -19,6 +19,7 @@ export default function ProductImage({ product }: Props) {
         height={480}
         alt={product?.name + " Imagem"}
         style={{ borderRadius: "4px" }}
+        data-testid={`product-image-${product.id}`}
       />
     </ImageContainer>
   );
